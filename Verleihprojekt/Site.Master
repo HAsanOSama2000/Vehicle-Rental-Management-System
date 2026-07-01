@@ -1,0 +1,106 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="VerleihProjekt.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="de">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Eigene ASP.NET-Anwendung</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <style>.nav-item {
+                display: inline;
+                float:left;
+                margin: 4px;
+}
+        .lgo{
+            float:right;
+            position:relative;
+            left: 15em;
+        }
+
+    .nav-item:hover {
+       
+        background-color: goldenrod; color: white;
+        font-size: medium;
+        padding: 1px;
+        padding-bottom: 0px;
+        padding-top: 1px;
+        border-radius: 3px;
+    }
+    ´.nv{
+        border:dotted;
+        height:10px;
+        display:none;
+
+    }
+    
+    </style>
+</head>
+<body >
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+                
+            </Scripts>
+           
+        </asp:ScriptManager>
+        
+        <nav style="height:70px; background-color: rgb(17,92,155); " class= "navbar navbar-expand-sm navbar-toggleable-sm ">
+             
+               
+               <a style="color: ghostwhite; text-decoration:none; padding-right:30px;  font-weight:bold; font-size:25px; font-family:Overpass" class=" navbar-brandnav-item" runat="server" href="~/"> &nbsp;Verleihsystem
+                    </a> <div runat="server" id="Navigation"  class="container collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                         <ul class="navbar-nav flex-grow-1 active">
+                         <li runat="server" id="StartSeite"  class="nav-item"><a style="color: white; font-weight:bold;" class="nav-link"  href="~/">Startseite</a></li>
+                         <li runat="server" id="ReservierenSeite" class="nav-item"><a style="color: whitesmoke; font-weight:bold; font-family:Overpass" class="nav-link"  href="/Default">Reservieren</a></li>
+                         
+                         <li  runat="server" id="MyReservationSeite" class="nav-item"><a style="color:white; font-weight:bold; font-family:Overpass" class="nav-link"  href="/MyReservation">Meine Buchung</a></li>
+                         <li  runat="server" id="LeihMaterialSeite"  class="nav-item"><a style="color: white; font-weight:bold; font-family:Overpass" class="nav-link"  href="/Leihmaterial">Leihmaterial</a></li>
+                         <li  runat="server" id="ReservierungenSeite" class="nav-item"><a style="color: whitesmoke; font-weight:bold; font-family:Overpass"" class="nav-link"  href="/Reservierungen">Reservierungen</a></li>
+                         <li  runat="server" id="KundenSeite" class="nav-item"><a style="color: whitesmoke; font-weight:bold; font-family:Overpass" class="nav-link"  href="/Kunden">Kunden</a></li>
+                          <li runat="server" id="LogOutSeite" style=" float:right;" class="nav-item lgo"><a style=" color: white; font-weight:bold; font-family:Overpass" class="nav-link"  href="/Logout">Logout</a></li>
+                            </ul>
+                          </div>     
+                        <%-- <div runat="server" id="User" class="collapse navbar-collapse d-sm-inline-flex justify-content-between" style="color: rgb(241, 180, 52);">
+                          
+                           </div>--%>
+
+
+        </nav>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                   <p>&copy; <%: DateTime.Now.Year %> - ASP.NET-Projekt von <b> Hasan Abouorra</b></p>
+            </footer>
+
+        </div> 
+    </form>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+    </asp:PlaceHolder>
+</body>
+</html>
